@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Taxi</string>
+    <string name="zoeken">Zoeken</string>
+    <string name="zoek">Zoek</string>
 </resources>
