@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/tfSearch"
-        android:layout_width="360dp"
+        android:layout_width="380dp"
         android:layout_height="50dp"
         android:autofillHints=""
         android:ems="10"
@@ -24,7 +24,7 @@
 
     <Button
         android:id="@+id/btnSearch"
-        android:layout_width="360dp"
+        android:layout_width="380dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/colorPrimary"
         android:text="@string/zoek"

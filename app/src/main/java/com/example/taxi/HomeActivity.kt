@@ -21,26 +21,14 @@ class HomeActivity : AppCompatActivity() {
 
   private fun initHomePage()
   {
+    //Search fragment initialiseren
     val searchFragment = SearchFragment()
-    supportFragmentManager.beginTransaction().add(android.R.id.content, searchFragment).commit()
+    //Search fragment inladen
+    supportFragmentManager.beginTransaction().add(android.R.id.content, searchFragment, "SEARCH_FRAGMENT").commit()
 
+    //List fragment initialiseren
     val listFragment = ListFragment()
-    supportFragmentManager.beginTransaction().add(android.R.id.content, listFragment).commit()
-
-//    //Knop ophalen d.m.v. van het id
-//    val btnSearch = findViewById<Button>(R.id.btnSearch)
-//    //Wanneer op knop wordt gedrukt
-//    btnSearch.setOnClickListener {
-//      //Text veld ophalen d.m.v. id
-//      val textField = findViewById<EditText>(R.id.tfSearch)
-//      //Text opslaan als string
-//      val text = textField.text.toString()
-//      //Andere activiteit aanroepen
-//      val intent = Intent(this, ListActivity::class.java)
-//      //Text meegeven aan andere activiteit
-//      intent.putExtra("input_text", text)
-//      //Activiteit starten
-//      startActivity(intent)
-//    }
+    //List fragment inladen
+    supportFragmentManager.beginTransaction().add(android.R.id.content, listFragment, "LIST_FRAGMENT").commit()
   }
 }
