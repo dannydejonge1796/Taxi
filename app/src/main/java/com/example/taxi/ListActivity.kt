@@ -16,6 +16,14 @@ class ListActivity : AppCompatActivity() {
     val toolbar = findViewById<Toolbar>(R.id.toolbar)
     setSupportActionBar(toolbar)
 
+    //Terugknop aanzetten
+    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+    //Klik actie instellen
+    toolbar.setNavigationOnClickListener {
+      finish()
+    }
+
     //Tekst weergeven
     this.showText()
   }
