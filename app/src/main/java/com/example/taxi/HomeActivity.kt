@@ -1,10 +1,7 @@
 package com.example.taxi
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class HomeActivity : AppCompatActivity() {
@@ -24,20 +21,26 @@ class HomeActivity : AppCompatActivity() {
 
   private fun initHomePage()
   {
-    //Knop ophalen d.m.v. van het id
-    val btnSearch = findViewById<Button>(R.id.btnSearch)
-    //Wanneer op knop wordt gedrukt
-    btnSearch.setOnClickListener {
-      //Text veld ophalen d.m.v. id
-      val textField = findViewById<EditText>(R.id.tfSearch)
-      //Text opslaan als string
-      val text = textField.text.toString()
-      //Andere activiteit aanroepen
-      val intent = Intent(this, ListActivity::class.java)
-      //Text meegeven aan andere activiteit
-      intent.putExtra("input_text", text)
-      //Activiteit starten
-      startActivity(intent)
-    }
+    val searchFragment = SearchFragment()
+    supportFragmentManager.beginTransaction().add(android.R.id.content, searchFragment).commit()
+
+    val listFragment = ListFragment()
+    supportFragmentManager.beginTransaction().add(android.R.id.content, listFragment).commit()
+
+//    //Knop ophalen d.m.v. van het id
+//    val btnSearch = findViewById<Button>(R.id.btnSearch)
+//    //Wanneer op knop wordt gedrukt
+//    btnSearch.setOnClickListener {
+//      //Text veld ophalen d.m.v. id
+//      val textField = findViewById<EditText>(R.id.tfSearch)
+//      //Text opslaan als string
+//      val text = textField.text.toString()
+//      //Andere activiteit aanroepen
+//      val intent = Intent(this, ListActivity::class.java)
+//      //Text meegeven aan andere activiteit
+//      intent.putExtra("input_text", text)
+//      //Activiteit starten
+//      startActivity(intent)
+//    }
   }
 }
