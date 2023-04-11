@@ -12,7 +12,7 @@ class HomeActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?)
   {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.home)
+    setContentView(R.layout.activity_home)
 
     //Toolbar ophalen en als default toolbar instellen
     val toolbar = findViewById<Toolbar>(R.id.toolbar)
