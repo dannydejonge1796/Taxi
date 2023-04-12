@@ -23,16 +23,15 @@ class HomeActivity : AppCompatActivity() {
 
   private fun initHomePage()
   {
-    val rdwApi = RdwApi(this.applicationContext)
-    rdwApi.getData()
-
     //Search fragment initialiseren
     val searchFragment = SearchFragment()
     //Search fragment inladen
     supportFragmentManager.beginTransaction().add(android.R.id.content, searchFragment, "SEARCH_FRAGMENT").commit()
 
+    val apc = RdwApi(this.applicationContext)
+
     //List fragment initialiseren
-    val listFragment = ListFragment()
+    val listFragment = ListFragment(apc)
     //List fragment inladen
     supportFragmentManager.beginTransaction().add(android.R.id.content, listFragment, "LIST_FRAGMENT").commit()
   }

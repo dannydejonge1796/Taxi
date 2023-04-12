@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.taxi.R
+import com.example.taxi.model.RdwApi
 
-class ListFragment : Fragment() {
+class ListFragment(private var apc: RdwApi) : Fragment() {
 
   private var textView: TextView? = null
+  private var listView: ListView? = null
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -20,6 +23,7 @@ class ListFragment : Fragment() {
     val view = inflater.inflate(R.layout.fragment_list, container, false)
     //Tekst view ophalen d.m.v. het id
     textView = view.findViewById(R.id.textView)
+    listView = view.findViewById(R.id.listView)
     return view
   }
 
@@ -29,5 +33,8 @@ class ListFragment : Fragment() {
     val message = getString(R.string.input_text_message, inputText)
     //Bericht als tekst instellen
     textView?.text = message
+
+    apc.getData(listView!!)
+
   }
 }
