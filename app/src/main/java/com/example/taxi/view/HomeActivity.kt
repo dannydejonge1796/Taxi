@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
     //Search fragment inladen
     supportFragmentManager.beginTransaction().add(android.R.id.content, searchFragment, "SEARCH_FRAGMENT").commit()
 
-    val apc = RdwApi(this.applicationContext)
+    val apc = RdwApi(this)
 
     //List fragment initialiseren
     val listFragment = ListFragment(apc)

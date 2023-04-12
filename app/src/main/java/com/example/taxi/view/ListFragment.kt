@@ -23,7 +23,9 @@ class ListFragment(private var apc: RdwApi) : Fragment() {
     val view = inflater.inflate(R.layout.fragment_list, container, false)
     //Tekst view ophalen d.m.v. het id
     textView = view.findViewById(R.id.textView)
+    //List view ophalen d.m.v. het id
     listView = view.findViewById(R.id.listView)
+    //Get data functie aanroepen in de rdw api class, lv meegeven
     apc.getData(listView!!)
     return view
   }
