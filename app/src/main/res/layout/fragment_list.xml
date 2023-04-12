@@ -22,9 +22,9 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="408dp"
-        android:layout_height="470dp"
-        android:background="#FFEB3B"
+        android:layout_width="409dp"
+        android:layout_height="415dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"

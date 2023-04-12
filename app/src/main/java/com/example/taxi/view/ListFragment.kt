@@ -24,6 +24,7 @@ class ListFragment(private var apc: RdwApi) : Fragment() {
     //Tekst view ophalen d.m.v. het id
     textView = view.findViewById(R.id.textView)
     listView = view.findViewById(R.id.listView)
+    apc.getData(listView!!)
     return view
   }
 
@@ -33,8 +34,5 @@ class ListFragment(private var apc: RdwApi) : Fragment() {
     val message = getString(R.string.input_text_message, inputText)
     //Bericht als tekst instellen
     textView?.text = message
-
-    apc.getData(listView!!)
-
   }
 }
