@@ -1,8 +1,10 @@
-package com.example.taxi
+package com.example.taxi.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.example.taxi.R
+import com.example.taxi.model.RdwApi
 
 class HomeActivity : AppCompatActivity() {
 
@@ -21,6 +23,9 @@ class HomeActivity : AppCompatActivity() {
 
   private fun initHomePage()
   {
+    val rdwApi = RdwApi(this.applicationContext)
+    rdwApi.getData()
+
     //Search fragment initialiseren
     val searchFragment = SearchFragment()
     //Search fragment inladen

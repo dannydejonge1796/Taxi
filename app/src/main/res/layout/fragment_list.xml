@@ -6,7 +6,7 @@
     android:id="@+id/listFragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListFragment">
+    tools:context=".view.ListFragment">
 
     <TextView
         android:id="@+id/textView"
