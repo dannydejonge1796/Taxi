@@ -14,17 +14,17 @@ class DetailActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_detail)
 
-    //Toolbar ophalen en als default toolbar instellen
-    val toolbar = findViewById<Toolbar>(R.id.toolbar)
-    setSupportActionBar(toolbar)
-
-    //Terugknop aanzetten
-    supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-    //Klik actie instellen
-    toolbar.setNavigationOnClickListener {
-      finish()
-    }
+//    //Toolbar ophalen en als default toolbar instellen
+//    val toolbar = findViewById<Toolbar>(R.id.toolbar)
+//    setSupportActionBar(toolbar)
+//
+//    //Terugknop aanzetten
+//    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//
+//    //Klik actie instellen
+//    toolbar.setNavigationOnClickListener {
+//      finish()
+//    }
 
     //Detail pagina init
     this.initDetailPage()

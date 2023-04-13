@@ -13,14 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Taxi"
         tools:targetApi="31">
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_main" />-->
         <activity
             android:name=".view.DetailActivity"
-            android:theme="@style/AppTheme"
             android:exported="false" />
         <activity
-            android:name=".view.HomeActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme">
+            android:name=".view.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

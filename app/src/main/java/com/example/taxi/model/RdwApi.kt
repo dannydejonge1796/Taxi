@@ -13,12 +13,12 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.taxi.view.DetailActivity
-import com.example.taxi.view.HomeActivity
+import com.example.taxi.view.MainActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONArray
 
-class RdwApi(private var context: HomeActivity) : AdapterView.OnItemClickListener
+class RdwApi(private var context: MainActivity) : AdapterView.OnItemClickListener
 {
   private var url: String = "https://opendata.rdw.nl/resource/m9d7-ebf2.json"
   private val gson: Gson = Gson()
