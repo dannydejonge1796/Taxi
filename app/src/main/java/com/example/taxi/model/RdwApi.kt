@@ -24,7 +24,7 @@ class RdwApi(private var context: HomeActivity) : AdapterView.OnItemClickListene
   private val gson: Gson = Gson()
   private val queue: RequestQueue = Volley.newRequestQueue(context.applicationContext)
 
-  fun getData(lv: ListView)
+  fun getData(lv: ListView, inputText: String?)
   {
     //Request aanmaken
     val stringRequest = StringRequest(
@@ -36,10 +36,18 @@ class RdwApi(private var context: HomeActivity) : AdapterView.OnItemClickListene
         //Type objecten die in array geplaats moeten worden specificeren
         val arr = object : TypeToken<ArrayList<RDW>>() {}.type
         //De json array omzetten naar een array met RDW objecten
-        val rdwArray = gson.fromJson<ArrayList<RDW>>(jarr.toString(), arr)
+        var rdwArray = gson.fromJson<ArrayList<RDW>>(jarr.toString(), arr)
+        //Als er een text is ingevoerd
+        if (inputText != null) {
+          //Filter de array van rdw objectem
+          val filteredArray = rdwArray.filter { item ->
+            item.kenteken?.contains(inputText, ignoreCase = true) == true
+          }
+          rdwArray = filteredArray as ArrayList<RDW>?
+        }
         //Opslaan welke layout gebruikt moet worden voor de list items
         val itemLayoutResId = android.R.layout.simple_list_item_2
-        //ArrayAdapter aanmaken
+//        ArrayAdapter aanmaken
         val ad = object : ArrayAdapter<RDW>(context, itemLayoutResId, rdwArray) {
           //Functie zorgt voor de individuele view items van de list, loopt door alle items heen
           override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -73,7 +81,6 @@ class RdwApi(private var context: HomeActivity) : AdapterView.OnItemClickListene
     //Wachten op response van de server om request uit te kunnen voeren
     queue.add(stringRequest)
   }
-
 
   override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long)
   {
