@@ -1,4 +1,4 @@
-package com.example.taxi.view.ui.notifications
+package com.example.taxi.ui.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,6 +1,5 @@
 package com.example.taxi.model
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +11,9 @@ import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.taxi.view.DetailActivity
-import com.example.taxi.view.MainActivity
+import com.example.taxi.MainActivity
+import com.example.taxi.R
+import com.example.taxi.ui.home.DetailFragment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONArray
@@ -86,11 +86,18 @@ class RdwApi(private var context: MainActivity) : AdapterView.OnItemClickListene
   {
     //Ophalen item uit de listview. parent? geeft aan dat hij null mag zijn, zonder te crashen
     val rdw : RDW = parent?.getItemAtPosition(position) as RDW
-    //Intent aanmaken voor detail activity
-    val intent = Intent(context, DetailActivity::class.java)
-    //Rdw object meegeven
-    intent.putExtra("rdw", rdw)
-    //Activity starten
-    context.startActivity(intent)
+
+    //Frament manager ophalen
+    val fragmentManager = context.supportFragmentManager
+    val fragmentTransaction = fragmentManager.beginTransaction()
+    //Detail fragment initialiseren
+    val detailFragment = DetailFragment(rdw)
+    //Vervang alle fragments met de nieuwe fragment
+    fragmentTransaction.replace(R.id.container, detailFragment)
+    //Zorgt dat je kan terug navigeren
+    fragmentTransaction.addToBackStack(null)
+
+    //Commit de transactie
+    fragmentTransaction.commit()
   }
 }

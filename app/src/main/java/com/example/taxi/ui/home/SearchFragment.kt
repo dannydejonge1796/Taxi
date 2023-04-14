@@ -1,4 +1,4 @@
-package com.example.taxi.view
+package com.example.taxi.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -32,8 +32,8 @@ class SearchFragment : Fragment() {
       val textField = view.findViewById<EditText>(R.id.tfSearch)
       //Tekst opslaan als string
       val text = textField.text.toString()
-      //List fragment ophalen met tag
-      val listFragment = parentFragmentManager.findFragmentByTag("LIST_FRAGMENT") as ListFragment
+      //List fragment ophalen met id
+      val listFragment = parentFragmentManager.findFragmentById(R.id.listFragmentContainer) as ListFragment
       //Update tekst functie aanroepen in list fragment
       listFragment.updateText(text)
     }

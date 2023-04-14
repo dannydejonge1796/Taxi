@@ -1,4 +1,4 @@
-package com.example.taxi.view.ui.home
+package com.example.taxi.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

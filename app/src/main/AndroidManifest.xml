@@ -18,10 +18,10 @@
 <!--            android:exported="false"-->
 <!--            android:label="@string/title_activity_main" />-->
         <activity
-            android:name=".view.DetailActivity"
+            android:name=".ui.home.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".view.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

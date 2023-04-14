@@ -1,4 +1,4 @@
-package com.example.taxi.view
+package com.example.taxi.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

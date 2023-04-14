@@ -1,4 +1,4 @@
-package com.example.taxi.view.ui.home
+package com.example.taxi.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.taxi.R
 import com.example.taxi.databinding.FragmentHomeBinding
 import com.example.taxi.model.RdwApi
-import com.example.taxi.view.ListFragment
-import com.example.taxi.view.MainActivity
-import com.example.taxi.view.SearchFragment
+import com.example.taxi.MainActivity
 
 class HomeFragment : Fragment() {
 
@@ -32,15 +30,24 @@ class HomeFragment : Fragment() {
     // Initialize RdwApi
     apc = RdwApi(requireActivity() as MainActivity)
 
-    // Search fragment initialiseren
-    val searchFragment = SearchFragment()
-    // Search fragment inladen
-    childFragmentManager.beginTransaction().add(R.id.searchFragmentContainer, searchFragment, "SEARCH_FRAGMENT").commit()
+    //Frament manager ophalen
+    val fragmentManager = childFragmentManager
+    val fragmentTransaction = fragmentManager.beginTransaction()
 
-    // List fragment initialiseren
+    //Search fragment initialiseren
+    val searchFragment = SearchFragment()
+    //Search fragment toevoegen aan transactie
+    fragmentTransaction.add(R.id.searchFragmentContainer, searchFragment)
+
+    //List fragment initialiseren
     val listFragment = ListFragment(apc)
-    // List fragment inladen
-    childFragmentManager.beginTransaction().add(R.id.listFragmentContainer, listFragment, "LIST_FRAGMENT").commit()
+    //List fragment toevoegen aan transactie
+    fragmentTransaction.add(R.id.listFragmentContainer, listFragment)
+
+    //Zorgt dat je kan terug navigeren
+    fragmentTransaction.addToBackStack(null)
+    //Commit de transactie
+    fragmentTransaction.commit()
 
     return root
   }

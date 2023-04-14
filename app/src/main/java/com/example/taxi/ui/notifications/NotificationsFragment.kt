@@ -1,4 +1,4 @@
-package com.example.taxi.view.ui.notifications
+package com.example.taxi.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
