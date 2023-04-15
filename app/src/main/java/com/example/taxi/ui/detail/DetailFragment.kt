@@ -1,8 +1,7 @@
-package com.example.taxi.ui.home
+package com.example.taxi.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -10,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.taxi.R
 import com.example.taxi.model.RDW
-
 
 class DetailFragment(private var rdw: RDW) : Fragment() {
 

@@ -5,15 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.taxi.MainActivity
 import com.example.taxi.R
 import com.example.taxi.databinding.FragmentHomeBinding
 import com.example.taxi.model.RdwApi
-import com.example.taxi.MainActivity
 
 class HomeFragment : Fragment() {
 
   private var _binding: FragmentHomeBinding? = null
-  private lateinit var apc: RdwApi
 
   // This property is only valid between onCreateView and
   // onDestroyView.
@@ -25,10 +24,13 @@ class HomeFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View {
     _binding = FragmentHomeBinding.inflate(inflater, container, false)
-    val root: View = binding.root
+    return binding.root
+  }
 
-    // Initialize RdwApi
-    apc = RdwApi(requireActivity() as MainActivity)
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    val apc = RdwApi(requireActivity() as MainActivity)
 
     //Frament manager ophalen
     val fragmentManager = childFragmentManager
@@ -48,8 +50,6 @@ class HomeFragment : Fragment() {
     fragmentTransaction.addToBackStack(null)
     //Commit de transactie
     fragmentTransaction.commit()
-
-    return root
   }
 
   override fun onDestroyView() {

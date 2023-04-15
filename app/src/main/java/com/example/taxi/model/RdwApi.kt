@@ -13,7 +13,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.taxi.MainActivity
 import com.example.taxi.R
-import com.example.taxi.ui.home.DetailFragment
+import com.example.taxi.ui.detail.DetailFragment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.json.JSONArray
@@ -84,20 +84,16 @@ class RdwApi(private var context: MainActivity) : AdapterView.OnItemClickListene
 
   override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long)
   {
-    //Ophalen item uit de listview. parent? geeft aan dat hij null mag zijn, zonder te crashen
-    val rdw : RDW = parent?.getItemAtPosition(position) as RDW
+    context.supportFragmentManager.popBackStack()
 
-    //Frament manager ophalen
-    val fragmentManager = context.supportFragmentManager
-    val fragmentTransaction = fragmentManager.beginTransaction()
+    //Ophalen item uit de listview. parent? geeft aan dat hij null mag zijn, zonder te crashen
+    val rdw: RDW = parent?.getItemAtPosition(position) as RDW
     //Detail fragment initialiseren
     val detailFragment = DetailFragment(rdw)
     //Vervang alle fragments met de nieuwe fragment
-    fragmentTransaction.replace(R.id.container, detailFragment)
-    //Zorgt dat je kan terug navigeren
-    fragmentTransaction.addToBackStack(null)
-
-    //Commit de transactie
-    fragmentTransaction.commit()
+    context.supportFragmentManager.beginTransaction()
+      .add(R.id.detailFragmentContainer, detailFragment)
+      .addToBackStack(null)
+      .commit()
   }
 }

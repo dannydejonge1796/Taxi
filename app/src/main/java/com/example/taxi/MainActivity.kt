@@ -8,7 +8,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.taxi.databinding.ActivityMainBinding
-import com.example.taxi.ui.home.DetailFragment
 import com.example.taxi.ui.home.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     // menu should be considered as top level destinations.
     val appBarConfiguration = AppBarConfiguration(
       setOf(
-        R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+        R.id.navigation_home, R.id.navigation_overview
       )
     )
     setupActionBarWithNavController(navController, appBarConfiguration)
@@ -50,22 +49,15 @@ class MainActivity : AppCompatActivity() {
 
   override fun onBackPressed()
   {
-    //Huidige fragment ophalen
-    val currentFragment = supportFragmentManager.findFragmentById(R.id.container)
-    //Als het fragment detail fragment is
-    if (currentFragment is DetailFragment) {
-      supportActionBar?.setDisplayHomeAsUpEnabled(false)
-      supportActionBar?.title = "Taxi"
+    supportActionBar?.setDisplayHomeAsUpEnabled(false)
+    supportActionBar?.title = "Taxi"
 
-      val fragmentManager = supportFragmentManager
-      val fragmentTransaction = fragmentManager.beginTransaction()
+    supportFragmentManager.popBackStack()
 
-      val homeFragment = HomeFragment()
-      fragmentTransaction.replace(R.id.container, homeFragment)
-      fragmentTransaction.commit()
-
-    } else {
-      super.onBackPressed()
-    }
+    val homeFragment = HomeFragment()
+    supportFragmentManager.beginTransaction()
+      .add(R.id.homeFragmentContainer, homeFragment)
+      .addToBackStack(null)
+      .commit()
   }
 }
