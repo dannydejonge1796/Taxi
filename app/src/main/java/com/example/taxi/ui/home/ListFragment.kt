@@ -26,9 +26,6 @@ class ListFragment(private var apc: RdwApi) : Fragment() {
     //List view ophalen d.m.v. het id
     listView = view.findViewById(R.id.listView)
 
-    //Get data functie aanroepen in de rdw api class, lv en null meegeven om totaal overzicht te krijgen
-    apc.getData(listView!!, null)
-
     return view
   }
 

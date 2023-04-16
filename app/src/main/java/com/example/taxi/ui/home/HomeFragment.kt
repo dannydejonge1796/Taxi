@@ -30,18 +30,20 @@ class HomeFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
+    //Rdw api class initialiseren
     val apc = RdwApi(requireActivity() as MainActivity)
 
     //Frament manager ophalen
     val fragmentManager = childFragmentManager
+    //Transactie starten
     val fragmentTransaction = fragmentManager.beginTransaction()
 
-    //Search fragment initialiseren
+    //Nieuwe instantie search fragment
     val searchFragment = SearchFragment()
     //Search fragment toevoegen aan transactie
     fragmentTransaction.add(R.id.searchFragmentContainer, searchFragment)
 
-    //List fragment initialiseren
+    //Nieuwe instantie list fragment
     val listFragment = ListFragment(apc)
     //List fragment toevoegen aan transactie
     fragmentTransaction.add(R.id.listFragmentContainer, listFragment)
