@@ -3,10 +3,24 @@ package com.example.taxi.model
 import android.os.Parcel
 import android.os.Parcelable
 
-class RDW(var kenteken: String?, var voertuigsoort: String?) : Parcelable{
+class RDW(
+  var kenteken: String?,
+  var voertuigsoort: String?,
+  var merk: String?,
+  var handelsbenaming: String?,
+  var eerste_kleur: String?,
+  var inrichting: String?,
+  var aantal_zitplaatsen: String?,
+  ) : Parcelable{
+
   //Met parcels kunnen objecten worden verstuurd tussen componenten
   constructor(parcel: Parcel) : this(
     //Leest waardes van attributen van het parcel object
+    parcel.readString(),
+    parcel.readString(),
+    parcel.readString(),
+    parcel.readString(),
+    parcel.readString(),
     parcel.readString(),
     parcel.readString()
   )
@@ -15,6 +29,11 @@ class RDW(var kenteken: String?, var voertuigsoort: String?) : Parcelable{
   override fun writeToParcel(parcel: Parcel, flags: Int) {
     parcel.writeString(kenteken)
     parcel.writeString(voertuigsoort)
+    parcel.writeString(merk)
+    parcel.writeString(handelsbenaming)
+    parcel.writeString(eerste_kleur)
+    parcel.writeString(inrichting)
+    parcel.writeString(aantal_zitplaatsen)
   }
 
   override fun describeContents(): Int {

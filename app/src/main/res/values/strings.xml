@@ -10,4 +10,9 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_overview">Overview</string>
+    <string name="zitplaatsen">Zitplaatsen</string>
+    <string name="kleur">Kleur</string>
+    <string name="handelsbenaming">Handelsbenaming</string>
+    <string name="inrichting">Inrichting</string>
+    <string name="merk">Merk</string>
 </resources>
