@@ -24,17 +24,16 @@ class HomeFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View {
     _binding = FragmentHomeBinding.inflate(inflater, container, false)
-    return binding.root
-  }
 
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
+    //Alles in de backstack verwijderen
+    childFragmentManager.popBackStack()
 
     //Rdw api class initialiseren
     val apc = RdwApi(requireActivity() as MainActivity)
 
     //Frament manager ophalen
     val fragmentManager = childFragmentManager
+
     //Transactie starten
     val fragmentTransaction = fragmentManager.beginTransaction()
 
@@ -52,6 +51,8 @@ class HomeFragment : Fragment() {
     fragmentTransaction.addToBackStack(null)
     //Commit de transactie
     fragmentTransaction.commit()
+
+    return binding.root
   }
 
   override fun onDestroyView() {

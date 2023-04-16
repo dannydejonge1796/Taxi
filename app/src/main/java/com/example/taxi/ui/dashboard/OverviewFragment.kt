@@ -27,6 +27,9 @@ class OverviewFragment : Fragment() {
     _binding = FragmentOverviewBinding.inflate(inflater, container, false)
     val root: View = binding.root
 
+    //Alles in de backstack verwijderen
+    childFragmentManager.popBackStack()
+
     //Overview ijst ophalen met id
     val lv = root.findViewById<ListView>(R.id.listOverView)
 
