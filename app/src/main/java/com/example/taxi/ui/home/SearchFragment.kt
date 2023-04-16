@@ -1,9 +1,11 @@
 package com.example.taxi.ui.home
 
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -30,6 +32,11 @@ class SearchFragment : Fragment() {
     btnSearch.setOnClickListener {
       //Tekst veld ophalen d.m.v. id
       val textField = view.findViewById<EditText>(R.id.tfSearch)
+
+      //Toetsenbord verbergen na klikken
+      val inputMethodManager = requireActivity().getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+      inputMethodManager.hideSoftInputFromWindow(textField.windowToken, 0)
+
       //Tekst opslaan als string
       val text = textField.text.toString()
       //List fragment ophalen met id
