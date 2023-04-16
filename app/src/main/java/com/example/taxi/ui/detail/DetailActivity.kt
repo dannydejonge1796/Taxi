@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    //Handle de onclick van teruhknop
+    //Handle de onclick van terugknop
     if (item.itemId == android.R.id.home) {
       onBackPressed()
       return true
